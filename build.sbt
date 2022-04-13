@@ -27,7 +27,8 @@ lazy val root = Project(
   funCqrs,
   funCqrsAkka,
   funCqrsTestKit,
-  raffleApp
+  raffleApp,
+  decompositionApp
 )
 
 
@@ -71,6 +72,19 @@ lazy val raffleApp = Project(
 
 addCommandAlias("runRaffleAkka", "sample-raffle/runMain raffle.app.MainAkka")
 addCommandAlias("runRaffleInMemory", "sample-raffle/runMain raffle.app.MainInMemory")
+
+lazy val decompositionApp = Project(
+  id = "decomposition",
+  base = file("samples/decomposition")
+).settings(defaultSettings
+).settings(libraryDependencies ++= sampleDeps)
+  .settings(publishArtifact := false)
+  .dependsOn(funCqrs)
+  .dependsOn(funCqrsTestKit)
+  .dependsOn(funCqrsAkka)
+
+addCommandAlias("runDecompositionAkka", "decomposition/runMain decomposition.app.MainAkka")
+addCommandAlias("runDecompositionInMemory", "decomposition/runMain decomposition.app.MainInMemory")
 
 
 // #####################################################
