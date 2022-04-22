@@ -13,3 +13,4 @@ local.*
 .metals/
 .vscode/
 project/
+sam/

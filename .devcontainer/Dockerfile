@@ -14,15 +14,11 @@ RUN \
   apt-get update && \
   apt-get install sbt && \
   cd && \
-  rm -r /working/ && \
-  sbt sbtVersion 
+  rm -r /working/ 
 
-#ARG ROOT_DIR=/workspaces
-
-#RUN mkdir -p ${ROOT_DIR}/project
-#ADD build.sbt ${ROOT_DIR}/
-#ADD ./project/plugins.sbt ${ROOT_DIR}/project
-#RUN cd ${ROOT_DIR} && sbt compile
+RUN mkdir sam && cd sam && wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip && \
+    unzip aws-sam-cli-linux-x86_64.zip -d sam-installation && \
+    sudo ./sam-installation/install
 
 # [Option] Install zsh
 ARG INSTALL_ZSH="true"
@@ -62,4 +58,5 @@ CMD [ "sleep", "infinity" ]
 #     && apt-get -y install --no-install-recommends \
 #    bash-completion curl wget unzip zip
 
+RUN sbt update 
 

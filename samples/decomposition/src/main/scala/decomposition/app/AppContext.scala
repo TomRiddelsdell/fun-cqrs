@@ -1,7 +1,9 @@
 package decomposition.app
 
 import akka.actor.ActorSystem
-import akka.persistence.query.journal.leveldb.scaladsl.LeveldbReadJournal
+//import akka.persistence.query.journal.leveldb.scaladsl.LeveldbReadJournal
+//import com.github.j5ik2o.akka.persistence.dynamodb.query.DynamoDBReadJournalProvider
+import com.github.j5ik2o.akka.persistence.dynamodb.query.scaladsl.{ DynamoDBReadJournal => ScalaDynamoDBReadJournal }
 import akka.persistence.query.{PersistenceQuery, Sequence}
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.Sink
@@ -29,8 +31,7 @@ object AppContext {
       val actorSystem: ActorSystem = actorSys
     }
 
-    val readJournal =
-      PersistenceQuery(actorSys).readJournalFor[LeveldbReadJournal](LeveldbReadJournal.Identifier)
+    val readJournal = PersistenceQuery(actorSys).readJournalFor[ScalaDynamoDBReadJournal](ScalaDynamoDBReadJournal.Identifier)
 
     backend
       .configure {
