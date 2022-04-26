@@ -34,9 +34,9 @@ object Dependencies {
       "com.github.dnvriend" %% "akka-persistence-inmemory" % "2.5.15.2"  % "test",
 
       //"com.typesafe.akka" %% "akka-persistence-dynamodb" % "1.2.0-RC2"
-      "com.github.j5ik2o" %% "akka-persistence-dynamodb-query" % "1.2.4" withSources(),
-      "com.github.j5ik2o" %% "akka-persistence-dynamodb-journal" % "1.2.4" withSources(),
-      "com.github.j5ik2o" %% "akka-persistence-dynamodb-snapshot" % "1.2.4" withSources()
+      "com.github.j5ik2o" %% "akka-persistence-dynamodb-query" % "1.2.3" withSources(),
+      "com.github.j5ik2o" %% "akka-persistence-dynamodb-journal" % "1.2.3" withSources(),
+      "com.github.j5ik2o" %% "akka-persistence-dynamodb-snapshot" % "1.2.3" withSources()
 
       //"com.typesafe.akka" %% "akka-persistence-query" % akkaVersion
     )

@@ -58,5 +58,5 @@ CMD [ "sleep", "infinity" ]
 #     && apt-get -y install --no-install-recommends \
 #    bash-completion curl wget unzip zip
 
-RUN sbt update 
+RUN cd ${LOCAL_WORKSPACE_FOLDER} && sbt update 
 
