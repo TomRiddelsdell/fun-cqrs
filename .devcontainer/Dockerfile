@@ -20,6 +20,10 @@ RUN mkdir sam && cd sam && wget https://github.com/aws/aws-sam-cli/releases/late
     unzip aws-sam-cli-linux-x86_64.zip -d sam-installation && \
     sudo ./sam-installation/install
 
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+  && unzip awscliv2.zip && sudo ./aws/install \
+  && rm awscliv2.zip
+
 # [Option] Install zsh
 ARG INSTALL_ZSH="true"
 # [Option] Upgrade OS packages to their latest versions
@@ -58,5 +62,4 @@ CMD [ "sleep", "infinity" ]
 #     && apt-get -y install --no-install-recommends \
 #    bash-completion curl wget unzip zip
 
-RUN cd ${LOCAL_WORKSPACE_FOLDER} && sbt update 
-
+RUN sbt runDecompositionAkka; exit 0

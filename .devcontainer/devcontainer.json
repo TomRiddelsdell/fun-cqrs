@@ -9,9 +9,11 @@
 	
 
 	"containerEnv": {
-		"AWS_KEY_DECO": "${env:AWS_KEY_DECO}",
-		"AWS_SECRET_DECO": "${env:AWS_SECRET_DECO}",
+		"AWS_ACCESS_KEY_ID": "${env:AWS_KEY_DECO}",
+		"AWS_SECRET_ACCESS_KEY": "${env:AWS_SECRET_DECO}",
+		"AWS_DEFAULT_REGION": "${env:AWS_REGION}",
 		"AWS_REGION": "${env:AWS_REGION}",
+		"AWS_ENABLE_ENDPOINT_DISCOVERY": "true"
 	},
 	// Use this environment variable if you need to bind mount your local source code into a new container.
 	"remoteEnv": {
@@ -24,8 +26,8 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-azuretools.vscode-docker",
-		"scalameta.metals",
-		"amazonwebservices.aws-toolkit-vscode"
+		"amazonwebservices.aws-toolkit-vscode",
+		"scalameta.metals"
 	],
 	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

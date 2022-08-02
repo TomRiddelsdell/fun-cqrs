@@ -14,12 +14,9 @@ object MainAkka extends App {
   val actorSys: ActorSystem = ActorSystem("FunCQRS")
   val backend               = AppContext.akkaBackend(actorSys)
 
-  val lotteryRef = backend.aggregateRef[Instrument].forId(id)
-
-  lotteryRef ! CreateInstrument
-
-  // add participants
-  lotteryRef ! Expire()
+  val instrumentRef = backend.aggregateRef[Instrument].forId(id)
+  instrumentRef ! CreateInstrument
+  instrumentRef ! Expire()
 
   Thread.sleep(3000)
 
@@ -28,8 +25,8 @@ object MainAkka extends App {
   val viewResult = AppContext.instrumentViewRepo.find(id)
 
   viewResult match {
-    case Success(res) => println(s" => result: $res")
-    case Failure(ex)  => println(s"FAILED: ${ex.getMessage}")
+    case Success(res) => println(s"TPR => result: $res")
+    case Failure(ex)  => println(s"TPR FAILED: ${ex.getMessage}")
   }
 
   Await.ready(actorSys.terminate(), 5.seconds)

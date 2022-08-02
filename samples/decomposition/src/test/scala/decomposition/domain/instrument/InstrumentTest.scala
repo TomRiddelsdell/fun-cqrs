@@ -34,7 +34,7 @@ class InstrumentTest extends AnyFunSuite with Matchers with OptionValues with Tr
         )
       }
     }
-
+    
     def instrumentRef(id: InstrumentId) =
       backend.aggregateRef[Instrument].forId(id)
 

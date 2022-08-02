@@ -14,3 +14,5 @@ local.*
 .vscode/
 project/
 sam/
+aws/
+.aws/

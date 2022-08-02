@@ -36,9 +36,16 @@ object Dependencies {
       //"com.typesafe.akka" %% "akka-persistence-dynamodb" % "1.2.0-RC2"
       "com.github.j5ik2o" %% "akka-persistence-dynamodb-query" % "1.2.3" withSources(),
       "com.github.j5ik2o" %% "akka-persistence-dynamodb-journal" % "1.2.3" withSources(),
-      "com.github.j5ik2o" %% "akka-persistence-dynamodb-snapshot" % "1.2.3" withSources()
+      "com.github.j5ik2o" %% "akka-persistence-dynamodb-snapshot" % "1.2.3" withSources(),
 
       //"com.typesafe.akka" %% "akka-persistence-query" % akkaVersion
+      //"com.typesafe.akka" %% "akka-persistence-typed" % akkaVersion,
+      //"akka-serialization-jackson" % akkaVersion,
+      //"com.typesafe.akka" %% "akka-actor-testkit-typed" % akkaVersion % Test,
+      //"com.typesafe.akka" %% "akka-remote" % akkaVersion
+      //libraryDependencies += "com.typesafe.akka" %% "akka-serialization-jackson" % AkkaVersion
+      "com.typesafe.akka" %% "akka-serialization-jackson" % akkaVersion
+
     )
   }
   //------------------------------------------------------------------------------------------------------------

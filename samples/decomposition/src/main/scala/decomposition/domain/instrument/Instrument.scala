@@ -73,7 +73,7 @@ object Instrument extends Types[Instrument] {
 
   def behavior(instrumentId: InstrumentId): Behavior[Instrument, InstrumentCommand, InstrumentEvent] =
     Behavior
-      .first { // defines how to construct a Raffle Aggregate
+      .first { // defines how to construct an Instrument Aggregate
         create(instrumentId)
       }
       // defines how to update it
